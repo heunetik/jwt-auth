@@ -20,19 +20,16 @@ module.exports = {
                 );
 
                 res.json({
-                    success: true,
-                    message: 'Authentication successful!',
+                    username: username,
                     token: token
                 });
             } else {
-                res.send(403).json({
-                    success: false,
+                res.status(403).send({
                     message: 'Incorrect username or password'
                 });
             }
         } else {
-            res.send(400).json({
-                success: false,
+            res.status(400).send({
                 message: 'Authentication failed! Please check the request'
             });
         }
